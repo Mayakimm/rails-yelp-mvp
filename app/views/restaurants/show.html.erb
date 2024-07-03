@@ -30,5 +30,11 @@
      <li><%= review.rating%> | <%= review.content %>  </li>
     <% end %>
   </ul>
+
+  <h6>Leave a Review for <%= @restaurant.name %></h6>
+   <%= simple_form_for([@restaurant, @review]) do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.button :submit, class:"text-white btn btn-primary" %>
+  <% end %>
 </div>
-<%= link_to "Leave a review", new_restaurant_review_path(@restaurant)  %>
